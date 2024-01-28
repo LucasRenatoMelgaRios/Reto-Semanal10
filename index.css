@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Lato", sans-serif;
+    font-size: 2rem;
+}
+
+img{
+    width: 100%;
+}
+
+.MainContent{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.páginaBienvenidaMainContainer{
+    display: flex;
+}
+
+.seccion1{
+    width: 50%;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    padding-left: 40px;
+}
+
+.seccion2{
+    width: 50%;
+    background-color: purple;
+
+}
+
+.logoContainer{
+    width: 100%;
+    height: 220px;
+    background: linear-gradient(to right, rgb(255, 171, 112), #0000ff);
+    /* border-left: 30px solid #0000ff; */
+    cursor: pointer;
+    display: flex;
+    align-items: center;}
+
+.logoContainer img{
+    width: 300px;
+    height: 200px;
+    margin-left: 50px;
+}
+
+
+
+/********INGRESAR TARJETA Y DNI**********/
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.seccion1 h1{
+    font-size: 3rem;
+}
+
+.ingresoDni input{
+    width: 400px;
+    padding: 10px;
+    color: white;
+    background-color: #0000ff;
+    font-size: 2rem;
+    border: 0;
+    
+}

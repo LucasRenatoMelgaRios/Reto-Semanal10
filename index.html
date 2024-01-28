@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<main>
+<div class="logoContainer">
+    <img src="img/logo.png" alt="">
+</div>
+<section class="MainContent">
+
+    <section class="páginaBienvenidaMainContainer">
+
+        <div class="seccion1">
+            <div class="titleContainer">
+                <h1>Ingresa tu DNI después de haber ingresado tu tarjeta</h1>
+            </div>
+
+            <form class="ingresoDni">
+                <input type="number" maxlength="8" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 8)">
+            </form>
+        </div>
+
+        <div class="seccion2">
+
+        </div>
+    </section>
+</section>
+
+</main>
+    <script src="app.js"></script>
+</body>
+</html>
