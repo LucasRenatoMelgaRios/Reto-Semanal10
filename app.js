@@ -1,257 +1,218 @@
-//EJERCICIO 1
+let cuentas = [ 
+    {nombre: "Mali", saldo: 200, password: "1234", dni: 44788834},
+    {nombre: "Gera", saldo: 150, password: "“5678", dni: 10247439},
+    {nombre: "Sabi", saldo: 60, password: "9102", dni: 98005362}
+    
+]
+
+let saldo = 0;
+const montoInput = document.getElementById("montoInput");
+const confirmarBtn = document.getElementById("confirmarBtn");
+const saldoActual = document.getElementById("saldoDisplay");
+const mensajeErrorContainer = document.querySelector('.mensajeErrorContainer');
+let mensajeError = mensajeErrorContainer.querySelector('p');
+// FUNCION DE INGRESO
+
+document.querySelector('.ingresar').addEventListener('click', function() {
+    let usuarioDNI = parseInt(document.getElementById('usuarioDNI').value);
+    let usuarioClave = document.getElementById('usuarioClave').value;
+    
+    
+    let cuentaEncontrada = cuentas.find(cuenta => cuenta.dni === usuarioDNI && cuenta.password === usuarioClave);
+    saldo = cuentaEncontrada.saldo
+    console.log(saldo)
+    if (cuentaEncontrada) {
+       
+        document.querySelector('.pantalla1').style.display = 'none';
+        document.querySelector('.pantalla2').style.display = 'block';
+    } else {
+        alert('DNI o contraseña incorrectos. Por favor, inténtelo de nuevo.');
+        document.getElementById('usuarioDNI').value = '';
+        document.getElementById('usuarioClave').value = '';
+    }
+});
+
+// RETIRO DE DINERO
+
+document.querySelector('.retirarDineroButton').addEventListener('click', function() {
+    document.querySelector('.pantalla2').style.display = 'none';
+    document.querySelector('.pantalla3').style.display = 'block';
+    mensajeErrorContainer.style.display = "none";
+
+});
+
+    
+document.getElementById('botonVolver').addEventListener('click', function() {
+    document.querySelector('.pantalla3').style.display = 'none';
+    document.querySelector('.pantalla2').style.display = 'block';
+});
+
+// VALIDACION DEL RETIRO
+const montosGridContainer = document.querySelector('.montosGridContainer');
+const montoInput2 = document.getElementById('montoInput');
+
+// Delegando eventos a los botones de retiro
+montosGridContainer.addEventListener('click', function(event) {
+    const target = event.target;
+    if (target.classList.contains('monto')) {
+        const monto = target.textContent.replace('S/.', ''); 
+        montoInput2.value = monto; 
+    }
+});
+
+// retiro
+
+document.addEventListener("DOMContentLoaded", function() {
+    let montoInput = document.getElementById("montoInput");
+    let formularioContainer = document.querySelector(".formularioContainer");
+    let mensajeError = null;
+    let mensajeErrorContainer = document.querySelector('.mensajeErrorContainer');
+
+    formularioContainer.addEventListener("submit", function(event) {
+        event.preventDefault(); 
+
+        let montoIngresado = parseInt(montoInput.value); 
+        let saldoUsuario = cuentas[0].saldo; 
+
+        if (isNaN(montoIngresado) || montoIngresado === 0 || montoIngresado > saldoUsuario) {
+            if (!mensajeError) { 
+                mensajeError = document.createElement("p");
+                mensajeError.textContent = "Monto no válido. Debe ingresar un monto mayor que 0.";
+                mensajeErrorContainer.appendChild(mensajeError);
+                mensajeErrorContainer.style.display = "block";
+            }
+            return false; // Detener el envío del formulario si las condiciones no se cumplen
+        }  
+        else if (saldo - montoIngresado < 10 || saldo - montoIngresado > 990) {
+            if (!mensajeError) { 
+                mensajeError = document.createElement("p");
+                mensajeError.textContent = "Tu saldo no puede tener menos de 10!";
+                mensajeErrorContainer.appendChild(mensajeError);
+                mensajeErrorContainer.style.display = "block";
+            }
+            return false; // Detener el envío del formulario si las condiciones no se cumplen
+        }
+        else {
+            // Si el monto es válido y no hay mensaje de error existent, se elimina
+            if (mensajeErrorContainer.style.display === "block") {
+                mensajeErrorContainer.style.display = "none";
+                mensajeError.textContent = ""; 
+            } 
+    
+            saldo = saldo - montoIngresado;
+            saldoDisplay.textContent = saldo;
+
+            document.querySelector(".pantalla3").style.display = "none";
+            document.querySelector(".pantalla4").style.display = "block";
+            
+            // Mostrando el detalle del retiro
+            // fecha y hora reales
+            let fechaActual = new Date().toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric', hour: 'numeric', minute: 'numeric' });
+            document.querySelector(".fechaHorayCajeroFlexContainer p").textContent = fechaActual;
+            document.querySelector(".montoTotalRetiroContainer h2").textContent = `S/. ${montoIngresado.toFixed(2)}`;
+        }
+    });
+});
 
-// let arreglo = [4, 8, 5, 3];
+// BOTONES DE SALIR
 
-// let ultimoElemento = (arreglo) =>{
-//     console.log(arreglo[arreglo.length - 1]);
-// }   
+document.addEventListener("DOMContentLoaded", function() {
+    let botonRetirarYVerSaldo = document.querySelector(".button1");
 
-// ultimoElemento(arreglo);
+    botonRetirarYVerSaldo.addEventListener("click", function() {
+        document.querySelector(".pantalla4").style.display = "none";
+        document.querySelector(".pantalla5").style.display = "block";
+        
+    });
 
+    let botonRetirarSinVerSaldo = document.querySelector(".button2");
 
-// EJERCICIO 2
+    botonRetirarSinVerSaldo.addEventListener("click", function() {
+        document.querySelector(".pantalla4").style.display = "none";
+        document.querySelector(".pantalla2").style.display = "block";
+    });
+});
 
-// let arreglo =[2, 7, 5, 11];
-// let numero = 8;
+const botonSalirDeSaldoDisponible = document.getElementById('botonSalirDeSaldoDisponible');
 
-// let agregarElemento = (arreglo, numero) => {
-//     arreglo.push(numero);
-//     return arreglo;
-// }
+botonSalirDeSaldoDisponible.addEventListener("click", ()=>{
+    console.log("Hiciste clic en salir")
+    document.querySelector(".pantalla5").style.display = "none";
+    document.querySelector(".pantalla2").style.display = "block";
+  
+})
 
-// arreglo = agregarElemento(arreglo, numero);
 
-// console.log(arreglo);
+// CONSULTAR SALDO
 
-//EJERCICIO 3
+const consultarSaldoBoton = document.getElementById('consultarSaldoButton');
 
-// let arreglo = [2, 6, 1, 8];
+consultarSaldoBoton.addEventListener('click', () => {
+    document.querySelector(".pantalla2").style.display = "none";
+    document.querySelector(".pantalla5").style.display = "block";
+    saldoDisplay.textContent = saldo;
 
-// let promedioDeLosNumeros = (arreglo) =>{
+})
 
-//     let promedioTotal = (arreglo[0] + arreglo[1] + arreglo[2] + arreglo[3]) / 4;
-//     return promedioTotal
-// }
 
-// console.log(promedioDeLosNumeros(arreglo));
+// REALIZAR DEPÓSITO
 
+const realizarDepositoBoton = document.getElementById('realizarDepositoButton');
+let mensajeErrorContainerDeposito = document.getElementById('mensajeErrorContainerDeposito');
+let mensajeErrorDeposito = document.createElement("p");
+let volverBoton = document.querySelector('.volverButton');
 
-// EJERCICIO 4
+volverBoton.addEventListener('click', ()=>{
+    document.querySelector(".pantalla2").style.display = "block";
+    document.querySelector(".pantalla6").style.display = "none";
 
-// let arreglo = [1, 2, 5, 8, 9, 12, 2, 3];
-// let suma = 0;
+})
 
+realizarDepositoBoton.addEventListener('click', ()=>{
+    document.querySelector('.pantalla2').style.display = 'none';
+    document.querySelector('.pantalla6').style.display = 'block';
+    mensajeErrorContainerDeposito.style.display = "none";
+})
 
-// let sumaDeNumerosPares = (arreglo, suma) =>{
+document.addEventListener("DOMContentLoaded", function() {
+    let depositForm = document.getElementById("depositForm");
+    let mensajeErrorContainer = document.querySelector('.mensajeErrorContainer');
+    let saldoDisplay = document.getElementById('saldoDisplay');
 
-//     for(let i = 0; i < arreglo.length; i++){
-//        if(arreglo[i] % 2 === 0){
-//          suma = suma + arreglo[i];
-//        }
-//     }
-//     return suma;
-// }
+    depositForm.addEventListener("submit", function(event) {
+        event.preventDefault(); 
 
-// console.log(sumaDeNumerosPares(arreglo, suma));
+        let montoInputDeposit = document.getElementById("montoInputDeposit");
+        let montoDeposito = parseFloat(montoInputDeposit.value); 
 
+        if (isNaN(montoDeposito) || montoDeposito <= 0) {
 
-// EJERCICIO 5
+            console.log("se cumple el if")
 
-// let arreglo1 = [2, 5, 2, 3, 7, 2];
-// let arreglo2 = [1, 5, 3, 3];
-// let arreglo3 = [];
+        } else {
+            // Verificar si el saldo no excede los 950
+            if (saldo + montoDeposito > 950) {
+                mensajeErrorDeposito.textContent = "Monto no válido. El saldo de tu cuenta no puede pasar de 950!";
+                mensajeErrorContainerDeposito.appendChild(mensajeErrorDeposito);
+                mensajeErrorContainerDeposito.style.display = "block";
+            } else {
+                saldo += montoDeposito;
+                saldoDisplay.textContent = saldo;
+                mensajeErrorContainer.style.display = "none";
+                mensajeErrorContainer.innerHTML = "";
+                document.querySelector(".pantalla6").style.display = "none";
+                document.querySelector(".pantalla2").style.display = "block";
+            }
+        }
+    });
+});
 
-// const arregloNuevo = (arreglo1, arreglo2, arreglo3) =>{
 
-//     arreglo3 = [...arreglo1, ...arreglo2];
 
-//     if(arreglo3.length >= 10){
-//         return arreglo3 + true;
-//     } else{
-//         return arreglo3 + false;
-//     }
 
-// }
 
-// let arregloConcatenado = [];
 
-// arregloConcatenado = arregloNuevo(arreglo1, arreglo2);
-// console.log(arregloConcatenado);
 
 
-// EJERCICIO 6
-
-// let arreglo1 = [2, 5, 2];
-// let arreglo2 = [1, 5, 3];
-
-// const funcionArray = (arreglo1, arreglo2) => {
-//     let arregloNuevo = [...arreglo1, ...arreglo2]
-//     for(let i = 0; i < arregloNuevo.length; i++){
-//         arregloNuevo[i] *= 2;
-//     }
-
-//     return arregloNuevo;
-// }
-
-// console.log(funcionArray(arreglo1, arreglo2))
-
-
-// EJERCICIO 7
-
-// let contraseña = "password";
-
-// let pregunta = prompt("Cual es la contraseña?")
-
-// pregunta = pregunta.toLocaleLowerCase;
-
-// if(pregunta === contraseña){
-//     alert("Contraseña correcta")
-// } else{
-//     alert("contraseña incorrecta")
-// }
-
-// EJERCICIO 8
-
-// let edad = prompt("Cual es su edad?")
-
-// if (isNaN(edad)) {
-//     alert("Edad no válida")
-// } else if(edad < 4){
-//     alert("Su entrada es gratis!")
-// } else if(edad >= 18){
-//     alert("El costo de la entrada es 10€")
-// } else if(edad => 4 && edad <= 8){
-//     alert("El costo de la entrada es 5€")
-// } 
-
-
-
-// EJERCICIO 9
-
-// let edad = prompt("¿Cuál es tu edad?");
-// let pago = prompt("¿Cuánto ganas mensualmente?");
-
-// if (isNaN(edad) || isNaN(pago)) {
-//     alert("Edad o pago no válido");
-// } else {
-//     edad = Number(edad);
-//     pago = Number(pago);
-
-//     if (edad > 18 && pago >= 1000) {
-//         alert("Tienes que tributar");
-//     } else {
-//         alert("No tienes que tributar");
-//     }
-// }
-
-
-// EJERCICIO 10
-
-// let diametro = prompt("Ingrese el diamentro de la rueda");
-
-// if(isNaN(diametro)){
-//     alert("medida no válida")
-// } else{
-
-//     diametro = Number(diametro)
-
-//     if(diametro > 1.4){
-//         alert("La rueda es para un vehículo grande")
-//     } else if(diametro < 0.8){
-//         alert("La rueda es para un vehículo pequeño")
-//     }  else if(diametro <= 1.4 && diametro >= 0,8){
-//         alert("La rueda es para un vehículo mediano")
-//     } 
-//  }
-
-
-// EJERCICIO 11
-
-// let personas = [
-//     { nombre: 'boris', hobby: 'correr', salario: 2000 },
-//     { nombre: 'luis', hobby: 'cantar', salario: 1500 },
-//     { nombre: 'carmen', hobby: 'cocinar', salario: 800 },
-//     { nombre: 'percy', hobby: 'cantar', salario: 1100 },
-//     { nombre: 'rosa', hobby: 'leer', salario: 3000 },
-// ];
-
-
-// const personasConMayorSalario = (personas) => {
-//     for(let i = 0; i < personas.length; i++){
-//         if(personas[i].salario > 1200){
-//             console.log(personas[i]) 
-//         }
-//     }
-// }
-
-
-// const personaConHobbyCantar = (personas) =>{
-//     for(let i = 0; i < personas.length; i++){
-//         if(personas[i].hobby == "cantar"){
-//             console.log(personas[i]);
-//         }
-//     }
-// }
-
-
-// const leGustaLeer = (personas) =>{
-//     for(let i = 0; i < personas.length; i++){
-//         if(personas[i].hobby == "leer"){
-//             return true;
-//         }
-//     }
-// }
-
-// console.log(personasConMayorSalario(personas))
-// console.log(personaConHobbyCantar(personas))
-// console.log(leGustaLeer(personas))
-
-
-// EJERCICIO 12
-
-// let empleados = [
-//     {nombre : "Maria", turno: "Lunes"},
-//     {nombre : "Luis", turno: "Martes"},
-//     {nombre : "Antonia", turno: "Miercoles"},
-//     {nombre : "Pedro", turno: "Jueves"},
-//     {nombre : "Marisa", turno: "Viernes"}
-// ]
-
-// let dia = prompt("Ingresa el día para saber quién trabaja ese día");
-// dia = dia.toLowerCase(); // Corregir la llamada al método toLowerCase
-
-// const turno = (empleados, dia) => {
-//     for (let i = 0; i < empleados.length; i++) {
-//         if (dia === empleados[i].turno.toLowerCase()) { 
-//             alert(`Los días ${dia} trabaja ${empleados[i].nombre}`);
-//             return; 
-//         }
-//     }
-//     alert(`No hay empleados que trabajen el día ${dia}`);
-// }
-
-
-// EJERCICIO 13
-
-// let productos = [
-//     {nombre: "monitor", precio: 200 },
-//     {nombre: "teclado", precio: 20 },
-//     {nombre: "raton", precio: 10 }
-// ]
-
-// let pregunta = prompt("De que producto deseas consultar el precio?")
-
-
-// const precioDelProducto = (productos, pregunta) => {
-//     for (let i = 0; i < productos.length; i++) {
-//         if (pregunta === productos[i].nombre) {
-//             alert(`El precio del ${productos[i].nombre} es ${productos[i].precio}`);
-//             return;
-//         }
-//     }
-//     alert(`No se encontró el producto "${pregunta}"`);
-// }
-
-// precioDelProducto(productos, pregunta);
 
 

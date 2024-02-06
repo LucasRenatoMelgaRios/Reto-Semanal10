@@ -1,20 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
-
 body{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: "Lato", sans-serif;
+    font-family: "Source Code Pro", monospace;
     font-size: 2rem;
+    background-color: rgb(23, 0, 74);
 }
+
+p{
+    font-family: "Source Code Pro", monospace;
+
+}
+
+
 
 img{
     width: 100%;
 }
 
-.MainContent{
-    width: 80%;
+main{
+    width: 1200px;
     margin: 0 auto;
+}
+
+.MainContent{
+    width: 100%;
+    margin: 0 auto;
+    margin-top: -80px;
+    position: relative;
+    z-index: 0;
 }
 
 .páginaBienvenidaMainContainer{
@@ -26,13 +42,16 @@ img{
     padding-top: 100px;
     padding-bottom: 100px;
     padding-left: 40px;
+    background-color: #f7f7f7;
+    padding-right: 20px;
+    border-bottom-left-radius: 30px;
 }
 
-.seccion2{
-    width: 50%;
-    background-color: purple;
-
+.ingresoContraseña{
+    display: flex;
+    flex-direction: column;
 }
+
 
 .logoContainer{
     width: 100%;
@@ -41,7 +60,12 @@ img{
     /* border-left: 30px solid #0000ff; */
     cursor: pointer;
     display: flex;
-    align-items: center;}
+    align-items: center;
+    border-bottom-right-radius: 90px;
+    border-bottom-left-radius: 90px;
+    position: relative;
+    z-index: 10;
+}
 
 .logoContainer img{
     width: 300px;
@@ -59,16 +83,813 @@ input[type="number"]::-webkit-outer-spin-button {
     margin: 0;
 }
 
+.seccion1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .seccion1 h1{
     font-size: 3rem;
+    padding-left: 50px;
 }
+
+
 
 .ingresoDni input{
     width: 400px;
-    padding: 10px;
+    padding: 5px 0px 5px 10px;
     color: white;
-    background-color: #0000ff;
+    background: linear-gradient(to right, rgb(255, 171, 112), #0000ff);
     font-size: 2rem;
     border: 0;
+    letter-spacing: 35px;
+    text-align: center;
+    border: 5px solid black;
+}
+
+
+.ingresar{
+    margin-top: 50px;
+    width: 40%;
+    height: 30px;
+    border: 0;
+    background-color: rgb(255, 171, 112); 
+    font-size: 1.5rem;
+    border-radius: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+}
+
+.ingresar:hover {
+    background-color: black;
+    color: white;
+    transition-duration: 0.5s;
+}
+
+.seccion2 img{
+    width: 550px;
+    height: 400px;
+}
+
+.seccion2{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7f7f7;
+    border-bottom-right-radius: 30px;
+
+}
+
+/*******************PANTALLA 2******************/
+
+.pantalla2{
+    width: 1200px;
+    background-color: #f7f7f7;
+    margin-top: 100px;
+    border-radius: 20px;
+    padding-bottom: 50px;
+    padding-right: 80px;
+    margin-left: -40px;
+}
+
+  
+.pantalla2 .contenidoSegundaPantallaMainContainer .mainContainerFlex{
+    display: flex;
+}
+
+.tituloSegundaPantalla{
+    display: flex;
+}
+
+.headerSegundaPantalla .tituloSegundaPantalla button{
+    width: 300px;
+    height: 300px;
+}
+
+.primeraMitad{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 100px;
+}
+
+.primeraMitad .boton{
+    width: 400px;
+    height: 200px;
+}
+
+.primeraMitad .retirarDineroButton{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    gap: 0px;
+    padding-left: 30px;
+    background-color: #f7f7f7;
+    border-radius: 20px;
+    position: relative;
+    margin-left: -80px;
+}
+
+.primeraMitad .retirarDineroButton:hover{
+    background-color: #0000ff;
+    color: white;
+    transition: 0,5s;
     
+}
+
+.primeraMitad .retirarDineroButton .iconoRetirarBlanco {
+    opacity: 0; /* Inicialmente invisible */
+    visibility: hidden; /* También oculto, pero mantiene el espacio */
+    position: absolute;
+    top: 40px;
+    z-index: 300;
+    transition:  0.5s; /* Aplicar transición a la opacidad */
+}
+
+.primeraMitad .retirarDineroButton:hover .iconoRetirarBlanco {
+    opacity: 1; /* Hacer visible en hover */
+    visibility: visible; /* Asegurarse de que sea visible */
+    z-index: 300;
+}
+
+.primeraMitad .retirarDineroButton:hover p{
+    color:#ffffff;
+    transition: 0.5s;
+}
+
+.primeraMitad .retirarDineroButton .iconoRetirarAzul{
+    position: absolute;
+    top: 40px;
+    
+}
+
+.primeraMitad .retirarDineroButton p{
+    font-size: 2rem;
+    margin-right: 100px;
+}
+
+.primeraMitad .retirarDineroButton img{
+    width: 110px;
+    height: 100px;
+}
+
+.primeraMitad button{
+    height: 400px;
+    cursor: pointer;
+
+}
+
+.primeraMitad .retirarDineroButton .linea{
+    transition: transform 0.3s ease; 
+    transform: translateX(0); /* Regresa a su posición original */
+
+    
+}
+
+.primeraMitad .retirarDineroButton:hover .linea{
+    background-color: #ffffff;
+    transition: 0.5s;
+    transform: translateX(30%);
+    transition: transform 0.3s ease; 
+    
+}
+
+.botonesContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.botonesContainer .boton{
+    background-color: #f7f7f7;
+    height: 180px;
+    border-radius: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 30px;
+}
+
+.botonesContainer :hover.boton{
+    background-color: rgb(255, 152, 41);
+    transition: 0.5s;
+    color:#f7f7f7
+}
+
+.primeraMitad .botonesContainer .boton:hover .linea {
+    background-color: #ffffff;
+    transition: 0.5s;
+    transform: translateX(180%);
+    transition: transform 0.3s ease; 
+}
+
+.primeraMitad .retirarDineroButton .linea{
+    width: 100px;
+    height: 3px;
+    background-color: rgb(0, 73, 209); 
+}
+
+.botonesContainer .boton .linea{
+    width: 50px;
+    height: 3px;
+    background-color: rgb(255, 68, 0);
+    transition: transform 0.3s ease; 
+    transform: translateX(0); /* Regresa a su posición original */
+
+}
+
+/***TITULO DE LA SEGUNDA PANTALLA****/
+
+ .headerSegundaPantalla{
+    display: flex;
+    padding-left: 50px;
+    padding-top: 50px;
+    white-space: nowrap;
+
+}
+
+
+.headerSegundaPantalla .botonSalirContainer{
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding-right: 50px;
+}
+
+.headerSegundaPantalla .botonSalirContainer .botonSalir{
+    width: 190px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 1.5rem;
+    border-radius: 90px;
+    cursor: pointer;
+    font-family: "Source Code Pro", monospace;
+    position: relative;
+}
+
+.headerSegundaPantalla .botonSalirContainer .botonSalir .salirIconBlanco{
+    position: absolute;
+    height:60px; 
+    width:100px;
+}
+
+.headerSegundaPantalla .botonSalirContainer .botonSalir .salirIconNegro{
+    position: absolute;
+    height:60px; 
+    width:100px;
+    z-index: 100;
+    
+}
+
+.headerSegundaPantalla .botonSalirContainer .botonSalir:hover .salirIconNegro{
+    visibility: hidden; /* También oculto, pero mantiene el espacio */
+    position: absolute;
+    top: 40px;
+    z-index: 100;
+    transition: opacity 0.5s; /* Aplicar transición a la opacidad */
+}
+
+
+
+.headerSegundaPantalla .botonSalirContainer .botonSalir:hover{
+    background-color: black;
+    color: white;
+    transition: 0.5s;
+}
+
+.headerSegundaPantalla .botonSalirContainer .botonSalir p{
+    margin-left: 80px;
+}
+
+.tituloSegundaPantalla{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    
+}
+
+.tituloSegundaPantalla h2{
+    font-size: 1.7rem;
+    height: 12px;
+}
+
+.botonSalirContainer button img{
+    width: 100px;
+}
+
+
+/** SEGUNDA MITAD DEL CONTENEDOR DE LA SEGUNDA PANTALLA*****/
+
+.segundaMitad{
+    display: flex;
+    flex-direction: column;
+}
+
+.segundaMitad .botonesSegundaMitadContainer{
+    display: flex;
+    gap: 20px;
+}
+
+.segundaMitad .botonesSegundaMitadContainer img{
+    width: 80px;
+}
+
+.segundaMitad .botonesSegundaMitadContainer .boton1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    border-radius: 20px;
+    padding: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+
+/*********Estilos hover para la segunda mitad *******/
+
+
+.segundaMitad .botonesSegundaMitadContainer .boton1:hover{
+    background-color: black;
+    color: #ffffff;
+    transition: 0.5s; 
+}
+
+
+.segundaMitad .botonesSegundaMitadContainer .boton1:hover .celularIconBlanco{
+    position: absolute;
+    z-index: 500;
+    position: absolute;
+    z-index: 100;
+    transition: 0.5s; 
+}
+
+.segundaMitad .botonesSegundaMitadContainer .boton1 .celularIconBlanco{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 10px;
+    
+}
+
+.segundaMitad .botonesSegundaMitadContainer .boton1 .celularIconNegro{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    z-index: 100;
+    top: 10px;
+}
+
+.segundaMitad .botonesSegundaMitadContainer .boton1 p{
+    margin-top: 90px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+/**************************PANTALLA 3**************************************/
+
+
+.pantalla3{
+    width: 1200px;
+    height: 50vh;
+    background-color: #f7f7f7;
+    margin-top: 100px;
+    border-radius: 20px;
+    padding-bottom: 50px;
+    padding-right: 80px;
+    margin-left: -40px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px;
+}
+
+.iconContainerPantalla3 img{
+    width: 80px;
+    height: 80px;
+}
+
+.headerContainer{
+    width: 1280px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+.iconAndTitleFlexContainer{
+    display: flex;
+    font-size: 1rem;
+    align-items: center;
+    gap: 20px;
+    margin-left: -100px;
+}
+
+.iconAndTitleFlexContainer h2{
+    margin-top: -10px;
+}
+
+.headerContainer button{
+    width: 140px;
+    height: 80px;
+    border-radius: 90px;
+    background-color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    font-family: "Source Code Pro", monospace;
+    margin-right: -80px;
+}
+
+.headerContainer button:hover{
+    background-color: black;
+    color: #ffffff;
+    transition: 0.5s;
+    border: 1px solid #ffffff
+}
+
+.billetesDisponiblesMainContainer{
+    width: 1200px;
+    margin-left: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.separador{
+    height: 120px;
+    width: 3px;
+    background-color: rgb(224, 224, 224);
+    margin-top: 20px;
+}
+
+.billetesDisponiblesContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.billetesDisponiblesContainer .billetes{
+    margin-top: -30px;
+    display: flex;
+    gap: 30px;
+    font-size: 2rem;
+}
+
+.IconoYhorarioContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-size: 1.4rem;
+    font-family: "Lato", sans-serif;
+
+}
+
+.IconoYhorarioContainer img{
+    width: 40px;
+    height: 40px;
+}
+
+.ingresarMontoMainContainer{
+    width: 100%;
+    margin: 0 auto;
+    margin-left: 40px;
+    display: flex;
+    padding-top: 40px;
+    justify-content: space-around;
+}
+
+.ingresarMontoMainContainer h2{
+    font-size: 1.6rem;
+    padding-top: 60px;
+    margin-right: 30px;
+    font-family: "Lato", sans-serif;
+
+}
+
+.formularioContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.formularioContainer input{
+    width: 300px;
+    height: 120px;
+    border-radius: 30px;
+    font-size: 2rem;
+    margin: 0;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.formularioContainer button{
+    width: 300px;
+    height: 80px;
+    border-radius: 30px;
+    font-size: 1.3rem;
+    background-color: #7d7aff;
+    font-family: "Lato", sans-serif;
+    color: rgb(58, 0, 206);
+    font-weight: bold;
+    cursor: pointer;
+
+}
+
+.formularioContainer button:hover{
+    background-color: white;
+    color:#2d0094;
+    transition: 0.5s;
+}
+
+.montosGridContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.montosGridContainer button{
+    width: 220px;
+    font-size: 2rem;
+    background-color: #3d00ca;
+    border-radius: 20px;
+    color: white;
+    font-family: "Lato", sans-serif;
+    cursor: pointer;
+}
+
+.montosGridContainer button:hover{
+    background-color: #ffffff;
+    color:#2d0094;
+    transition: 0.5s;
+}
+
+
+/***********PANTALLA 4**********/
+
+.pantalla4{
+    width: 1200px;
+    background-color: #f7f7f7;
+    margin-top: 100px;
+    border-radius: 20px;
+    padding-bottom: 50px;
+    margin-left: -40px;
+    padding: 40px;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.titleContainerPantalla4{
+    text-align: center;
+    line-height: 40px;
+}
+.titleContainerPantalla4 p{
+    font-family: "Lato", sans-serif;
+    font-size: 1.6rem;
+}
+
+.mitad1{
+    width: 50%;
+}
+
+.mitad2{
+    width: 50%;
+}
+
+.montoTotalFlexContainer{
+    display: flex;
+    
+}
+
+.fechaHorayCajeroFlexContainer{
+    display: flex;
+    font-size: 1.5rem;
+    justify-content: space-between;
+    font-family: "Lato", sans-serif;
+    white-space: nowrap;
+    gap: 20px;
+}
+
+.montoTotalRetiroContainer{
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+
+.montoTotalRetiroContainer h2{
+    margin-top: -20px;
+}
+
+.montoTotalRetiroContainer p{
+    font-family: "Lato", sans-serif;
+    font-weight: bolder;
+}
+
+.mitad2{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-left: 80px;
+    margin-top: -40px;
+}
+
+.mitad2 button{
+    width: 400px;
+    height: 100px;
+    border-radius: 30px;
+    font-size: 1.4rem;
+    font-family: "Lato", sans-serif;
+    cursor: pointer;
+}
+
+.mitad2 .button1{
+    background-color: #ffffff;
+    font-weight: bold;
+    color:#2d0094;
+
+}
+
+.mitad2 .button1:hover{
+    background-color: #3d00ca;
+    color:#ffffff;
+    transition: 0.5s;
+}
+
+.mitad2 .button2{
+    color:#2d0094;
+    font-weight: bold;
+}
+
+.mitad2 .button2:hover{
+    background-color: #3d00ca;
+    color:#ffffff;
+    transition: 0.5s;
+}
+
+/******** PANTALLA 5********/
+
+.pantalla5, .pantalla6{
+    width: 1200px;
+    background-color: #f7f7f7;
+    margin-top: 100px;
+    border-radius: 20px;
+    padding-bottom: 50px;
+    margin-left: -40px;
+    padding: 40px;
+    height: 50vh;
+    position: relative;
+}
+
+.pantalla5 img{
+    width: 420px;
+    height: 320px;
+    position: absolute;
+    transform: rotate(360deg);
+    transition-duration: 1.5s; 
+    right: 40px;
+    top: 300px;
+    z-index: 400;
+}
+
+.pantalla5 .mensajePublicidad {
+    font-size: 1.2rem;
+    position: absolute;
+    right: 40px;
+    bottom: 20px;
+    transform: translateY(-1450%);
+    opacity: 0; 
+    transition: opacity 0.5s ease-out; 
+    animation: aparecer 1s ease-out forwards; 
+    animation-delay: 1s; 
+}
+
+@keyframes aparecer {
+    to {
+        opacity: 1; /
+    }
+}
+
+.titleContainerPantalla5{
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    
+
+}
+
+.titleContainerPantalla5 button{
+    width: 200px;
+}
+
+.titleContainerPantalla5 .botonSalir{
+    width: 190px;
+    height: 80px;
+    background-color: #ffffff;
+    font-size: 1.5rem;
+    border-radius: 90px;
+    cursor: pointer;
+    font-family: "Source Code Pro", monospace;
+   
+}
+
+.saldoDisponibleMainContainer{
+    margin-left: 290px;
+}
+
+.saldoDisponibleMainContainer h2{
+    font-size: 1.3rem;
+}
+
+.pantalla2, .pantalla3, .pantalla3, .pantalla4, .pantalla5{
+    display: none;
+}
+
+.ingresoContraseña{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.ingresoDni input{
+    margin-left: 50px;
+}
+
+.mensajeErrorContainer{
+    width: 200px;
+    height: 40px;
+    display: none;
+    margin-left: 370px;
+}
+
+.mensajeErrorContainer p{
+  font-size: 1.4rem;
+
+}
+
+.pantalla6 button{
+    width: 220px;
+    font-size: 1.4rem;
+    background-color: #3d00ca;
+    border-radius: 20px;
+    color: white;
+    font-family: "Lato", sans-serif;
+    cursor: pointer;
+}
+
+.pantalla6 input{
+    height: 30px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.pantalla6 button:hover{
+    background-color: #ffffff;
+    color:#3d00ca;
+    transition: 0.5s;
+}
+
+.pantalla6{
+    display:none;
+}
+
+#mensajeErrorContainerDeposito{
+    display: none;
+}
+
+.titleAndButtonContainer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.volverButton{
+    width: 140px;
+    height: 80px;
+    border-radius: 90px;
+    background-color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    font-family: "Source Code Pro", monospace;
 }
